@@ -26,12 +26,27 @@
             <div class="page-title">
                 <h3>Recent Tweets</h3> 
             </div>
+            <div id="tweets">
 
+            </div>
         </section>
 
 
         <footer>
-            <p>Created for shits and giggles by <a href="http://tomrobertshaw.net">Tom Robetshaw</a></p>
+            <p>Created for shits and giggles by <a href="http://tomrobertshaw.net">Tom Robertshaw</a></p>
         </footer>
+
+        <script>
+            $(document).ready(function() {
+                var getTweets = $.ajax({
+                    type: "GET",
+                    url: "load_recent_tweets.php",
+                    data: "next=10",
+                    success: function (html) {
+                        $("#tweets").html(html);
+                    }
+                });
+            });
+        </script>
     </body>
 </html>
