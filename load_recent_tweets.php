@@ -22,7 +22,11 @@ if (isset($_GET['bookmark'])) {
     $result = mysql_query($query) or die (mysql_error());
 
     while($tweet = mysql_fetch_array($result)) {
-        echo "<div class=\"tweet\"><img src=\"" . $tweet['image'] . "\" alt=\"" . $tweet['name'] . "\" title=\"" . $tweet['name'] . "\" /><a class=\"name\" href=\"http://twitter.com/" . $tweet['screen_name'] . "\">" . $tweet['name'] . "</a><p>" . $tweet['text'] . "</p><p class=\"meta-info\"><a class=\"time\" href=\"http://twitter.com/" . $tweet['screen_name'] . "/status/" . $tweet['id'] . "\">" . date("D j M Y - G:H", strtotime($tweet['time'])) . "</a>" . $tweet['source'] . "</div>";
+        // Add markup to tweet where necessary, e.g. links
+         $text = preg_replace( '/(?<!S)((http(s?):\/\/)|(www.))+([\w.1-9\&=#?\-~%;\/]+)/',
+                '<a href="http$3://$4$5">http$3://$4$5</a>', $tweet['text']);
+
+        echo "<div class=\"tweet\"><img src=\"" . $tweet['image'] . "\" alt=\"" . $tweet['name'] . "\" title=\"" . $tweet['name'] . "\" /><a class=\"name\" href=\"http://twitter.com/" . $tweet['screen_name'] . "\">" . $tweet['name'] . "</a><p>" . $text . "</p><p class=\"meta-info\"><a class=\"time\" href=\"http://twitter.com/" . $tweet['screen_name'] . "/status/" . $tweet['id'] . "\">" . date("D j M Y - G:H", strtotime($tweet['time'])) . "</a>" . $tweet['source'] . "</div>";
     }
 
     echo "<p>Next $limit tweets since $latest_tweet</p>";
@@ -35,7 +39,12 @@ if (isset($_GET['bookmark'])) {
     $result = mysql_query($query) or die (mysql_error());
 
     while($tweet = mysql_fetch_array($result)) {
-        echo "<div class=\"tweet\"><img src=\"" . $tweet['image'] . "\" alt=\"" . $tweet['name'] . "\" title=\"" . $tweet['name'] . "\" /><a class=\"name\" href=\"http://twitter.com/" . $tweet['screen_name'] . "\">" . $tweet['name'] . "</a><p>" . $tweet['text'] . "</p><p class=\"meta-info\"><a class=\"time\" href=\"http://twitter.com/" . $tweet['screen_name'] . "/status/" . $tweet['id'] . "\">" . date("D j M Y - G:H", strtotime($tweet['time'])) . "</a>"
+        // Add markup to tweet where necessary, e.g. links
+        $text = preg_replace(
+        '/(?<!S)((http(s?):\/\/)|(www.))+([\w.1-9\&=#?\-~%;\/]+)/',
+        '<a href="http$3://$4$5">http$3://$4$5</a>', $tweet['text']);
+
+        echo "<div class=\"tweet\"><img src=\"" . $tweet['image'] . "\" alt=\"" . $tweet['name'] . "\" title=\"" . $tweet['name'] . "\" /><a class=\"name\" href=\"http://twitter.com/" . $tweet['screen_name'] . "\">" . $tweet['name'] . "</a><p>" . $text . "</p><p class=\"meta-info\"><a class=\"time\" href=\"http://twitter.com/" . $tweet['screen_name'] . "/status/" . $tweet['id'] . "\">" . date("D j M Y - G:H", strtotime($tweet['time'])) . "</a>"
  . $tweet['source'] . "</div>";
     }
 
