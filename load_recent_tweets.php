@@ -1,6 +1,8 @@
 <?php
 
 require('config.php');
+require('func.php');
+
 mysql_connect($server, $username, $password) or die (mysql_error());
 mysql_select_db($database) or die (mysql_error());
 
@@ -23,10 +25,23 @@ if (isset($_GET['bookmark'])) {
 
     while($tweet = mysql_fetch_array($result)) {
         // Add markup to tweet where necessary, e.g. links
-         $text = preg_replace( '/(?<!S)((http(s?):\/\/)|(www.))+([\w.1-9\&=#?\-~%;\/]+)/',
+        $text = preg_replace( '/(?<!S)((http(s?):\/\/)|(www.))+([\w.1-9\&=#?\-~%;\/]+)/',
                 '<a href="http$3://$4$5">http$3://$4$5</a>', $tweet['text']);
 
-        echo "<div class=\"tweet\"><img src=\"" . $tweet['image'] . "\" alt=\"" . $tweet['name'] . "\" title=\"" . $tweet['name'] . "\" /><a class=\"name\" href=\"http://twitter.com/" . $tweet['screen_name'] . "\">" . $tweet['name'] . "</a><p>" . $text . "</p><p class=\"meta-info\"><a class=\"time\" href=\"http://twitter.com/" . $tweet['screen_name'] . "/status/" . $tweet['id'] . "\">" . date("D j M Y - G:H", strtotime($tweet['time'])) . "</a>" . $tweet['source'] . "</div>";
+        // Fuzzy-fy the time
+        $time = fuzzy_time($tweet['time']);
+
+        echo <<<END
+        <div class="tweet">
+            <img src="$tweet[image]" alt="$tweet[name]" title="$tweet[name]" />
+            <div class="tweet-content">
+                <a class="name" href="http://twitter.com/$tweet[screen_name]">$tweet[name]</a>
+                <p>$text</p>
+                <p class="meta-info"><a class="time"
+                        href="http://twitter.com/$tweet[screen_name]/status/$tweet[id]">$time</a></p>
+            </div>
+        </div>
+END;
     }
 
     echo "<p>Next $limit tweets since $latest_tweet</p>";
@@ -43,12 +58,23 @@ if (isset($_GET['bookmark'])) {
         $text = preg_replace(
         '/(?<!S)((http(s?):\/\/)|(www.))+([\w.1-9\&=#?\-~%;\/]+)/',
         '<a href="http$3://$4$5">http$3://$4$5</a>', $tweet['text']);
+        
+        // Fuzzy-fy the time
+        $time = fuzzy_time($tweet['time']);
 
-        echo "<div class=\"tweet\"><img src=\"" . $tweet['image'] . "\" alt=\"" . $tweet['name'] . "\" title=\"" . $tweet['name'] . "\" /><a class=\"name\" href=\"http://twitter.com/" . $tweet['screen_name'] . "\">" . $tweet['name'] . "</a><p>" . $text . "</p><p class=\"meta-info\"><a class=\"time\" href=\"http://twitter.com/" . $tweet['screen_name'] . "/status/" . $tweet['id'] . "\">" . date("D j M Y - G:H", strtotime($tweet['time'])) . "</a>"
- . $tweet['source'] . "</div>";
-    }
+        echo <<<END
+        <div class="tweet">
+            <img src="$tweet[image]" alt="$tweet[name]" title="$tweet[name]" />
+            <div class="tweet-content">
+                <a class="name" href="http://twitter.com/$tweet[screen_name]">$tweet[name]</a>
+                <p>$text</p>
+                <p class="meta-info"><a class="time"
+                    href="http://twitter.com/$tweet[screen_name]/status/$tweet[id]">$time</a></p>
+            </div>
+        </div>
+END;
 
+}
 
-    echo "<p>Most recent $limit</p>";
 }
 ?>
