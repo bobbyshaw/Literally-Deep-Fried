@@ -5,15 +5,12 @@
         <meta name="description" content="An example of using the twitter stream API looking for ridiculous use of the word 'literally'." />
         <link href="css/normalize.css" rel="stylesheet" type="text/css" media="all" />
         <link href="css/styles.css" rel="stylesheet" type="text/css" media="all" />
+        <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
         <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js?ver=3.1.3'></script> 
-        <title>I was LITERALLY deep fried</title>
+        <title>Literally deep fried</title>
     </head>
 
     <body>
-        <header>
-            <h1 class="logo">I was LITERALLY deep fried</title>
-            <h2 class="tagline">Something for all those grammar nazis to amuse themself with.</h2>
-        </header>
 
         <nav class="top-navigation">
             <ul>
@@ -21,6 +18,10 @@
                 <li><a href="top-fools">Top Fools</a></li>
                 <li><a href="latest-tweets">Latest Tweets</a></li>
         </nav>
+
+        <header>
+            <h1>Literally deep fried</h1>
+        </header>
 
         <section class="container">
             <div class="page-title">
@@ -33,7 +34,7 @@
 
 
         <footer>
-            <p>Created for shits and giggles by <a href="http://tomrobertshaw.net">Tom Robertshaw</a></p>
+            <p class="cloud">Imagined by <br/><a href="http://tomrobertshaw.net">Tom Robertshaw</a></p>
         </footer>
 
         <script>
