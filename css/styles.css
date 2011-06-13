@@ -1,0 +1,104 @@
+h1,h2,h3 { 
+    font-family: 'Oswald', arial, serif;
+    text-shadow:1px 1px 0 black;
+}
+
+a {
+    color:white;
+    font-family: 'Oswald', arial, serif;
+    text-decoration: none;
+}
+
+a:visited {
+    color:white;
+}
+
+a:hover {
+    border-bottom:1px dashed;
+}
+
+p { font-family: 'Oswald', arial, serif; margin:2px;}
+
+body {
+    background-color:#0463bb;   
+    color:#ffbb05;
+}
+
+header {
+    margin:0px auto;
+    width:954px;
+    font-size:40px;
+}
+
+header h1 {
+    margin:20px;
+    text-transform:uppercase;
+}
+
+nav.top-navigation {
+    width:954px;
+    margin:10px auto;
+    text-align:right;
+}
+
+nav.top-navigation ul li {
+    padding:5px;;
+    display:inline;
+    margin:10px 5px;
+}
+
+nav.top-navigation ul li:hover { 
+   background:#044dbb;
+   box-shadow:  1px 1px 0px #E7E7E7, -1px -1px 0px #333;
+   -webkit-border-radius:6px;
+   -moz-border-radius:6px;
+   border-radius:6px;
+}
+
+nav.top-navigation ul li a {
+   border:0px;
+   text-shadow: -1px -1px 0 #333;
+}
+
+section.container {
+    margin:0 auto;
+    width:954px;
+    padding-bottom:30px;
+    background: url('../images/divider.png') center bottom no-repeat;
+}
+
+.tweet { min-height:48px; margin:15px 10px; border:1px dashed #333; border-radius:10px;}
+    
+.tweet img { float:left; height:48px; width:48px; margin:10px}
+.tweet .tweet-content { margin:5px 20px 5px 66px; text-shadow: -1px -1px 0px #333;}
+.tweet p {font-size:14px;}
+.tweet .meta-info { font-size:11px;}
+
+
+footer { 
+    margin:0 auto;
+    width:954px;
+    background:url('../images/birds.png') center left no-repeat;
+    min-height:170px;
+    min-width:200px;
+}
+
+footer p.cloud {
+    font-family:Arial;
+    float:right;
+    text-align:center;
+    padding-top:55px;
+    font-size:12px;
+    color:#333;
+    background: url('../images/cloud.png') top right no-repeat;
+    min-width:212px;
+    min-height:110px;
+}
+
+footer a,
+footer a:visited {
+    color:#333;
+    font-size:15px;
+    font-family:Arial;
+}
+
