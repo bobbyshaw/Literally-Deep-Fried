@@ -48,15 +48,15 @@ function toHtml($tweet) {
     $time = fuzzy_time($tweet['time']);
     
     $html = <<<END
-    <div id="$tweet[id]" class="tweet">
-        <img src="$tweet[image]" alt="$tweet[name]" title="$tweet[name]" />
-        <div class="tweet-content">
-            <a class="name" href="http://twitter.com/$tweet[screen_name]">$tweet[name]</a>
-            <p>$text</p>
-            <p class="meta-info"><a class="time"
-                href="http://twitter.com/$tweet[screen_name]/status/$tweet[id]">$time</a></p>
-        </div>
+<div id="$tweet[id]" class="tweet">
+    <img src="$tweet[image]" alt="$tweet[name]" title="$tweet[name]" />
+    <div class="tweet-content">
+        <a class="name" href="http://twitter.com/$tweet[screen_name]">$tweet[name]</a>
+        <p>$text</p>
+        <p class="meta-info"><a class="time"
+            href="http://twitter.com/$tweet[screen_name]/status/$tweet[id]">$time</a></p>
     </div>
+</div>
 END;
 
     return $html;
