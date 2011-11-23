@@ -36,7 +36,7 @@
 
 
         <footer>
-            <p class="cloud">Imagined by <br/><a href="http://tomrobertshaw.net">Tom Robertshaw</a></p>
+            <p class="cloud">Imagined by <br/><a href="http://tomrobertshaw.net">Tom Robertshaw</a> <br/>and <br/><a href="#">Martin Shaw</a></p>
         </footer>
     </body>
 </html>
