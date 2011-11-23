@@ -12,7 +12,7 @@
     $user = 'tooliteral'; // replace with your account
     $pass = 'grammarnazi'; // replace with your account
  
-    $fp = fsockopen("stream.twitter.com", 80, $errno, $errstr, 30);
+    $fp = fsockopen("ssl://stream.twitter.com", 443, $errno, $errstr, 30);
     if(!$fp){
         print "$errstr ($errno)\n";
     } else {
