@@ -16,7 +16,7 @@ if (isset($_GET['next'])) {
 }
 
 // Then see what tweets to load.
-if (isset($_GET['bookmark'])) {
+if (isset($_GET['bookmark']) && is_numeric($_GET['bookmark'])) {
     $latest_tweet = mysql_real_escape_string($_GET['bookmark']);
 
     $query = "SELECT * from tweets WHERE id > '$latest_tweet' order by id desc limit $limit;";
