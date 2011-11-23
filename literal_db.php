@@ -32,7 +32,7 @@
                             mysql_real_escape_string($tweet['text']) . "', '" . 
                             mysql_real_escape_string($tweet['source']) . "', '" . 
                             $tweet['user']['profile_image_url'] . "', FROM_UNIXTIME('" . 
-                            strtotime($tweet['created_at']) . "'));";
+                            strtotime($tweet['created_at']) . "'), '' );";
                 mysql_query($query) or die (mysql_error());
             }
         }
