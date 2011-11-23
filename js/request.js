@@ -1,8 +1,16 @@
+var activeIds = [];
+var tweetsToShow = [];
+var update = true;
+
 $(document).ready(function() {
     loadTweets(10, false);
+    showNextTweet();
+    $('#tweets').hover( function(eventObject) {
+        update = false;
+    }, function(eventObject) {
+        update = true;
+    });
 });
-
-var activeIds = [];
 
 function loadTweets(qty, bookmark) {
     updateActiveIds();
@@ -39,7 +47,17 @@ function addIfDoesntExist(tweets) {
             }
         }
         if (addValue) {
-            $("#tweets").prepend($(this));
+            var newTweet = $("#tweets").prepend($(this));
+            tweetsToShow.push($(this));
+            $(this).hide();
         }
     });
+}
+
+function showNextTweet() {
+    if (tweetsToShow.length != 0 && update) {
+        var nextTweet = tweetsToShow.shift();
+        nextTweet.fadeIn(1000);
+    }
+    setTimeout("showNextTweet()", 2000);
 }
