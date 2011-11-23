@@ -73,6 +73,10 @@ section.container {
 .tweet .tweet-content { margin:5px 20px 5px 66px; text-shadow: -1px -1px 0px #333;}
 .tweet p {font-size:14px;}
 .tweet .meta-info { font-size:11px;}
+.tweet:hover {
+    border-color:#ffbb05;
+    border-style: solid;
+}
 
 
 footer { 
