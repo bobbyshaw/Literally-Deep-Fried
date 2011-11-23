@@ -17,6 +17,7 @@
                 <li><a href="about">About</a></li>
                 <li><a href="top-fools">Top Fools</a></li>
                 <li><a href="latest-tweets">Latest Tweets</a></li>
+            </ul>
         </nav>
 
         <header>

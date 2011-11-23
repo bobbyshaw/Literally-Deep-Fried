@@ -3,5 +3,5 @@
     $server = "localhost";
     $database = "literal";
     $username = "root";
-    $password = "";
+    $password = "toor";
 ?>
