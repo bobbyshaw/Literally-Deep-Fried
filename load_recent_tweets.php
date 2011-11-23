@@ -19,7 +19,7 @@ if (isset($_GET['next'])) {
 if (isset($_GET['bookmark'])) {
     $latest_tweet = mysql_real_escape_string($_GET['bookmark']);
 
-    $query = "SELECT * from tweets WHERE id > '$latest_tweet' order by id asc limit $limit;";
+    $query = "SELECT * from tweets WHERE id > '$latest_tweet' order by id desc limit $limit;";
 
     $result = mysql_query($query) or die (mysql_error());
 
@@ -44,12 +44,10 @@ if (isset($_GET['bookmark'])) {
 END;
     }
 
-    echo "<p>Next $limit tweets since $latest_tweet</p>";
-
 } else {
     // Get latest tweets
 
-    $query = "SELECT * from tweets order by time desc limit $limit;";
+    $query = "SELECT * from tweets order by id desc limit $limit;";
 
     $result = mysql_query($query) or die (mysql_error());
 
