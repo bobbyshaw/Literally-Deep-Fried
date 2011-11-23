@@ -32,7 +32,7 @@ if (isset($_GET['bookmark']) && is_numeric($_GET['bookmark'])) {
     $query = "SELECT * from tweets order by id desc limit $limit;";
     $result = mysql_query($query) or die (mysql_error());
 
-    while($tweet = mysql_fetch_array($result)) {        
+    while($tweet = mysql_fetch_array($result)) {
         echo toHtml($tweet);
     }
 
@@ -55,6 +55,10 @@ function toHtml($tweet) {
         <p>$text</p>
         <p class="meta-info"><a class="time"
             href="http://twitter.com/$tweet[screen_name]/status/$tweet[id]">$time</a></p>
+    </div>
+    <div class="vote">
+        <p class="current">$tweet[count]</p>
+        <a href="//vote.php?id=$tweet[id]">NOOBZ</a>
     </div>
 </div>
 END;
