@@ -70,7 +70,8 @@ section.container {
 .tweet { min-height:48px; margin:15px 10px; border:1px dashed #333; border-radius:10px;}
     
 .tweet img { float:left; height:48px; width:48px; margin:10px}
-.tweet .tweet-content { margin:5px 20px 5px 66px; text-shadow: -1px -1px 0px #333;}
+.tweet .tweet-content { margin:5px 10px 5px 66px; text-shadow: -1px -1px 0px #333;}
+.tweet .vote { float: right; text-align: center; margin-left: 20px;}
 .tweet p {font-size:14px;}
 .tweet .meta-info { font-size:11px;}
 .tweet:hover {
