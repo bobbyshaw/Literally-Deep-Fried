@@ -38,31 +38,4 @@ if (isset($_GET['bookmark']) && is_numeric($_GET['bookmark'])) {
 
 }
 
-function toHtml($tweet) {
-    
-    // Add markup to tweet where necessary, e.g. links
-    $text = preg_replace( '/(?<!S)((http(s?):\/\/)|(www.))+([\w.1-9\&=#?\-~%;\/]+)/',
-            '<a href="http$3://$4$5">http$3://$4$5</a>', $tweet['text']);
-    
-    // Fuzzy-fy the time
-    $time = fuzzy_time($tweet['time']);
-    
-    $html = <<<END
-<div id="$tweet[id]" class="tweet">
-    <img src="$tweet[image]" alt="$tweet[name]" title="$tweet[name]" />
-    <div class="tweet-content">
-        <div class="vote">
-            <p class="current">$tweet[votes]</p>
-            <a href="vote.php?id=$tweet[id]">WHAT A NOOB</a>
-        </div>
-        <a class="name" href="http://twitter.com/$tweet[screen_name]">$tweet[name]</a>
-        <p>$text</p>
-        <p class="meta-info"><a class="time"
-            href="http://twitter.com/$tweet[screen_name]/status/$tweet[id]">$time</a></p>
-    </div>
-</div>
-END;
-
-    return $html;
-}
 ?>
