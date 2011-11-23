@@ -28,22 +28,10 @@ CREATE TABLE `tweets` (
   `source` varchar(100) DEFAULT NULL,
   `image` varchar(150) DEFAULT NULL,
   `time` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `votes` bigint(20) DEFAULT '0',
+   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
---
--- Table structure for table `vote`
---
-
-DROP TABLE IF EXISTS `vote`;
-CREATE TABLE `vote` (
-  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
-  `tweet_id` bigint(20) NOT NULL,
-  `voter_screen_name` varchar(20) NOT NULL,
-  `score` int(11) DEFAULT NULL,
-  `timestamp` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
