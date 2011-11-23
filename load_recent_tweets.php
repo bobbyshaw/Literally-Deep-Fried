@@ -1,7 +1,7 @@
 <?php
 
-require('config.php');
-require('func.php');
+require_once('config.php');
+require_once('func.php');
 
 mysql_connect($server, $username, $password) or die (mysql_error());
 mysql_select_db($database) or die (mysql_error());
