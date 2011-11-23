@@ -32,7 +32,7 @@ if (isset($_GET['bookmark'])) {
         $time = fuzzy_time($tweet['time']);
 
         echo <<<END
-        <div class="tweet">
+        <div id="$tweet[id]" class="tweet">
             <img src="$tweet[image]" alt="$tweet[name]" title="$tweet[name]" />
             <div class="tweet-content">
                 <a class="name" href="http://twitter.com/$tweet[screen_name]">$tweet[name]</a>
@@ -61,7 +61,7 @@ END;
         $time = fuzzy_time($tweet['time']);
 
         echo <<<END
-        <div class="tweet">
+        <div id="$tweet[id]" class="tweet">
             <img src="$tweet[image]" alt="$tweet[name]" title="$tweet[name]" />
             <div class="tweet-content">
                 <a class="name" href="http://twitter.com/$tweet[screen_name]">$tweet[name]</a>
