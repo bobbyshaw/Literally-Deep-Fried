@@ -24,7 +24,7 @@
             $json = fgets($fp);
             $tweet = json_decode($json, true);
             if($tweet && $tweet['text']){
-                $query = "INSERT INTO tweets 
+                $query = "INSERT IGNORE INTO tweets 
                         VALUES ('" . 
                             $tweet['id_str'] . "', '" . 
                             $tweet['user']['screen_name'] . "', '" .
