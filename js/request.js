@@ -11,7 +11,6 @@ function loadTweets(qty, bookmark) {
     arguments.url = "load_recent_tweets.php";
     arguments.data = "next="+qty;
     arguments.success = function (html) {
-        //$("#tweets").html(html);
         addIfDoesntExist($(html));
 
         var most_recent = $("#tweets .tweet:first-child");
