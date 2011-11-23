@@ -51,14 +51,14 @@ function toHtml($tweet) {
 <div id="$tweet[id]" class="tweet">
     <img src="$tweet[image]" alt="$tweet[name]" title="$tweet[name]" />
     <div class="tweet-content">
+        <div class="vote">
+            <p class="current">$tweet[votes]</p>
+            <a href="vote.php?id=$tweet[id]">WHAT A NOOB</a>
+        </div>
         <a class="name" href="http://twitter.com/$tweet[screen_name]">$tweet[name]</a>
         <p>$text</p>
         <p class="meta-info"><a class="time"
             href="http://twitter.com/$tweet[screen_name]/status/$tweet[id]">$time</a></p>
-    </div>
-    <div class="vote">
-        <p class="current">$tweet[count]</p>
-        <a href="//vote.php?id=$tweet[id]">NOOBZ</a>
     </div>
 </div>
 END;
