@@ -1,16 +1,16 @@
 <?php
+define( 'NOW',        time() );
+define( 'ONE_MINUTE', 60 );
+define( 'ONE_HOUR',   3600 );
+define( 'ONE_DAY',    86400 );
+define( 'ONE_WEEK',   ONE_DAY*7 );
+define( 'ONE_MONTH',  ONE_WEEK*4 );
+define( 'ONE_YEAR',   ONE_MONTH*12 );
 
 function fuzzy_time( $time ) {
   if ( ( $time = strtotime( $time ) ) == false ) {
     return 'an unknown time';
   }
-  define( 'NOW',        time() );
-  define( 'ONE_MINUTE', 60 );
-  define( 'ONE_HOUR',   3600 );
-  define( 'ONE_DAY',    86400 );
-  define( 'ONE_WEEK',   ONE_DAY*7 );
-  define( 'ONE_MONTH',  ONE_WEEK*4 );
-  define( 'ONE_YEAR',   ONE_MONTH*12 );
  
   // sod = start of day :)
   $sod = mktime( 0, 0, 0, date( 'm', $time ), date( 'd', $time ), date( 'Y', $time ) );
